@@ -4,7 +4,14 @@
 
 @section('content')
     <div class="span9">
-        <div class="context">
+        <div class="content">
+
+            @if(Session::has('message'))
+                <div class="alert alert-success">{{Session::get('message')}}</div>
+            @endif
+
+            <form action="{{route('quiz.store')}}" method="POST">
+            @csrf
             <div class="module">
                 <div class="module-head">
                     <h3>Create Quiz</h3>
@@ -49,6 +56,8 @@
                     </div>
                 </div>
             </div>
+
+            </form>
         </div>
     </div>
 @endsection
