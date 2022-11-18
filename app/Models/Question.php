@@ -10,6 +10,8 @@ use App\Models\Quiz;
 class Question extends Model
 {
     use HasFactory;
+    private $limit = 10;
+    private $order = 'DESC';
 
     protected $fillable = [
         'question',
@@ -27,5 +29,10 @@ class Question extends Model
     public function storeQuestion($data){
         $data['quiz_id'] = $data['quiz'];
         return Question::create($data);
+    }
+
+    public function getQuestions()
+    {
+        return Question::orderBy('created_at',$this->order)->with('quiz')->paginate($this->limit);
     }
 }
