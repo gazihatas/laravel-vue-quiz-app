@@ -49,7 +49,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <form id="delete-form{{$question->id}}" method="POST" action="{{route('quiz.destroy',[$question->id])}}">
+                                        <form id="delete-form{{$question->id}}" method="POST" action="{{route('question.destroy',[$question->id])}}">
                                             @csrf
                                             {{method_field('DELETE')}}
                                         </form>

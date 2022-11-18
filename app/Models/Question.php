@@ -53,6 +53,10 @@ class Question extends Model
         $question->quiz_id = $data['quiz'];
         $question->save();
         return $question;
+    }
 
+    public function deleteQuestion($id)
+    {
+        Question::where('id',$id)->delete();
     }
 }
