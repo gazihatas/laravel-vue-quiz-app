@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Quiz;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
+use App\Models\Quiz;
 
 class QuizController extends Controller
 {
@@ -15,7 +14,8 @@ class QuizController extends Controller
      */
     public function index()
     {
-        //
+        $quizzes = (new Quiz)->allQuiz();
+        return view('backend.quiz.index',compact('quizzes'));
     }
 
     /**
