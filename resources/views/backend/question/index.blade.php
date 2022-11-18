@@ -44,7 +44,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{route('quiz.edit',[$question->id])}}">
+                                        <a href="{{route('question.edit',[$question->id])}}">
                                             <button class="btn btn-primary">Edit</button>
                                         </a>
                                     </td>

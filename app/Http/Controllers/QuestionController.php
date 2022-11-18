@@ -65,7 +65,8 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question = (new Question)->findQuestion($id);
+        return view('backend.question.edit',compact('question'));
     }
 
     /**
@@ -77,7 +78,10 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data =$this->validateForm($request);
+        $question = (new Question)->uptadeQuestion($id,$request);
+        $answer= (new Answer)->updateAnswer($request,$question);
+        return redirect()->route('question.show',$id)->with('message','Question updated successfully!');
     }
 
     /**
