@@ -31,4 +31,14 @@ class Quiz extends Model
         return Quiz::all();
     }
 
+    public function getQuizById($id)
+    {
+        return Quiz::find($id);
+    }
+
+    public function updateQuiz($data,$id)
+    {
+        return Quiz::find($id)->update($data);
+    }
+
 }

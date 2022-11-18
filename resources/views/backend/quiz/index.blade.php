@@ -6,6 +6,11 @@
 
     <div class="span9">
         <div class="content">
+
+            @if(Session::has('message'))
+                <div class="alert alert-success">{{Session::get('message')}}</div>
+            @endif
+
             <div class="module">
                 <div class="module-head">
                     <h3>All Quiz</h3>
