@@ -44,7 +44,22 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <button class="btn btn-danger">Delete</button>
+                                            <form id="delete-form{{$quiz->id}}" method="POST" action="{{route('quiz.destroy',[$quiz->id])}}">
+                                            @csrf
+                                            {{method_field('DELETE')}}
+                                            </form>
+
+                                            <a href="#"
+                                               onclick="
+                                               if(confirm('Do you want to delete?')){
+                                                    event.preventDefault();
+                                                    document.getElementById('delete-form{{$quiz->id}}').submit()
+                                               }else{
+                                               event.preventDefault();
+                                               }
+                                                ">
+                                                <input type="submit" class="btn btn-danger" value="Delete">
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
