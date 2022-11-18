@@ -10,11 +10,11 @@
                 <div class="alert alert-success">{{Session::get('message')}}</div>
             @endif
 
-            <form action="{{route('quiz.store')}}" method="POST">
+            <form action="{{route('question.store')}}" method="POST">
                 @csrf
                 <div class="module">
                     <div class="module-head">
-                        <h3>Create Quiz</h3>
+                        <h3>Create Question</h3>
                     </div>
 
                     <div class="module-body">
@@ -53,7 +53,8 @@
                                 <label class="control-label">Options</label>
                                 <div class="controls">
                                     @for($i=0;$i<4;$i++)
-                                    <input type="text" name="options[]" class="span7 @error('name') border-red @enderror" placeholder="options{{$i+1}}" required>
+                                    <input type="text" name="options[]" class="span7 @error('options') border-red @enderror"
+                                           placeholder="options{{$i+1}}" value="{{old('options.[$i]')}}" required>
 
                                     <input type="radio" name="correct_answer" value="{{$i}}">
                                     <span>Is correct answer</span>
