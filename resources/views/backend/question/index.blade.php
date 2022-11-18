@@ -39,6 +39,11 @@
                                     <td>{{$question->quiz->name}}</td>
                                     <td>{{date('F d,Y',strtotime($question->created_at))}}</td>
                                     <td>
+                                        <a href="{{route('question.show',[$question->id])}}">
+                                            <button class="btn btn-info">View</button>
+                                        </a>
+                                    </td>
+                                    <td>
                                         <a href="{{route('quiz.edit',[$question->id])}}">
                                             <button class="btn btn-primary">Edit</button>
                                         </a>
