@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ExamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,13 +30,12 @@ Route::group(['middleware'=>'isAdmin'],function (){
     Route::get('/', function () {
         return view('admin.index');
     });
+    Route::get('/quiz/{id}/question', [QuizController::class, 'question'])->name('quiz.question');
     Route::resource('quiz',QuizController::class);
     Route::resource('question',QuestionController::class);
     Route::resource('user',UserController::class);
-//Route::get('/quiz/{id}/question',[QuizController::class, 'question'])->name('quiz.question');
-    Route::get(
-        '/quiz/{id}/question',
-        [QuizController::class, 'question']
-    )->name('quiz.question');
+
+    Route::get('exam/assign',[ExamController::class,'create']);
+    Route::post('exam/assign',[ExamController::class,'assignExam'])->name('exam.assign');
 });
 
