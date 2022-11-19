@@ -93,6 +93,14 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /*
+        if(auth()->user()->id == $id)
+        {
+            return redirect()->back('message','Kendini silemezsin!');
+        }
+        */
+
+        $user =(new User)->deleteUser($id);
+        return redirect()->route('user.index')->with('message','user deleted successully!');
     }
 }
