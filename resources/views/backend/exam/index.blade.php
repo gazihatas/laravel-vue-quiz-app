@@ -40,6 +40,15 @@
                                             <button class="btn btn-inverse">View Question</button>
                                         </a>
                                     </td>
+
+                                    <td>
+                                        <form action="{{route('exam.remove')}}" method="POST">
+                                        @csrf
+                                            <input type="hidden" name="user_id" value="{{$user->id}}">
+                                            <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
+                                            <button type="submit" class="btn btn-danger">Remove</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             @endforeach
