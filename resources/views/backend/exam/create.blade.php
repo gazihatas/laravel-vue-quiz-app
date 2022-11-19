@@ -39,7 +39,7 @@
 
                     <div class="module-body">
                         <div class="control-group">
-                            <div class="control-label" >Choose Quiz</div>
+                            <div class="control-label" >Choose User</div>
                             <div class="controls">
                                 <select name="user_id" class="span8">
                                     @foreach(App\Models\User::where('is_admin','0')->get() as $user)
