@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <example-component></example-component>
              <div class="card-header">Gösterge paneli</div>
                 @if($isExamAssigned)
                     @foreach($quizzes as $quiz)
@@ -18,7 +19,7 @@
                         <p>Soru sayısı : {{$quiz->questions->count()}}</p>
                         <p>
                             @if(!in_array($quiz->id,$wasQuizCompleted))
-                                <a href="">
+                                <a href="/quiz/{{$quiz->id}}">
                                     <button class="btn btn-success">Sınava Başla</button>
                                 </a>
                             @else
@@ -35,3 +36,9 @@
     </div>
 </div>
 @endsection
+<script>
+    import ExampleComponent from "@/components/ExampleComponent.vue";
+    export default {
+        components: {ExampleComponent}
+    }
+</script>

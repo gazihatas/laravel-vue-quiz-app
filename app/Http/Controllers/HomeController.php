@@ -44,4 +44,9 @@ class HomeController extends Controller
 
         return view('home',compact('quizzes','wasQuizCompleted','isExamAssigned'));
     }
+
+    public function getQuizQuestions(Request $request)
+    {
+
+    }
 }
