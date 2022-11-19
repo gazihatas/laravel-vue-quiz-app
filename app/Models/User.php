@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    private $limit = 10;
     /**
      * The attributes that are mass assignable.
      *
@@ -55,5 +55,10 @@ class User extends Authenticatable
         $data['password'] = bcrypt($data['password']);
         $data['is_admin']=0;
         return User::create($data);
+    }
+
+    public function allUsers()
+    {
+        return User::latest()->paginate($this->limit);
     }
 }
