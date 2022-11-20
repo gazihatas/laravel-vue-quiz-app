@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Quiz;
 use App\Models\Result;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
@@ -39,5 +40,15 @@ class ExamController extends Controller
             $quiz->users()->detach($userId);
             return redirect()->back()->with('message','Sınav artık o kullanıcıya atanmadı!');
         }
+    }
+
+    public function getQuizQuestions(Request $request,$quizId)
+    {
+        $authUser=auth()->user()->id;
+        $quiz = Quiz::find($quizId);
+        $time = Quiz::where('id',$quizId)->value('minutes');
+        $quizQuestions = Question::where('quiz_id',$quizId)->with('answers')->get();
+        $authUserHasPlayedQuiz = Result::where(['user_id'=>$authUser,'quiz_id'=>$quizId])->get();
+        return view('quiz',compact('quiz','time','quizQuestions','authUserHasPlayedQuiz'));
     }
 }

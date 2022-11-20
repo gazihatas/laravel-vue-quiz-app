@@ -5,7 +5,6 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <example-component></example-component>
              <div class="card-header">Gösterge paneli</div>
                 @if($isExamAssigned)
                     @foreach($quizzes as $quiz)
