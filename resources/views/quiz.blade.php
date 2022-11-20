@@ -12,9 +12,4 @@
     </quiz-component>
 
 @endsection
-<script>
-    import QuizComponent from "@/components/QuizComponent.vue";
-    export default {
-        components: {QuizComponent}
-    }
-</script>
+
