@@ -16,7 +16,12 @@
                               <ol>
                                   <li v-for="choice in question.answers">
                                       <label>
-                                          <input type="radio">
+                                          <input type="radio"
+                                          :value="choice.is_correct==true?true:choice.answer"
+                                          :name="index"
+                                          v-model="userResponses[index]"
+                                          @click="choices(question.id,choice.id)"
+                                          >
                                           {{choice.answer}}
                                       </label>
                                   </li>
@@ -26,9 +31,19 @@
 
                        </div>
 
-                        <button class="btn btn-success float-right" @click="prev()">Prev</button>
-                        <button class="btn btn-success" @click="next()">Next</button>
+                        <div v-show="questionIndex!=questions.length">
 
+                            <button class="btn btn-success float-right" @click="prev()">Prev</button>
+                            <button class="btn btn-success" @click="next()">Next</button>
+                        </div>
+
+                        <div v-show="questionIndex===questions.length">
+                            <p>
+                                <center>
+                                    You got : {{score()}}/{{questions.length }}
+                                </center>
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -44,6 +59,9 @@ export default {
         return{
             questions:this.quizQuestions,
             questionIndex:0,
+            userResponses:Array(this.quizQuestions.length).fill(false),
+            currentQuestion:0,
+            currentAnswer:0
         }
     },
     mounted() {
@@ -55,6 +73,15 @@ export default {
         },
         prev(){
             this.questionIndex--;
+        },
+        choices(question,answer){
+            this.currentAnswer=answer
+            this.currentQuestion=question
+        },
+        score(){
+            return this.userResponses.filter((val)=>{
+               return val===true;
+            }).length
         }
     }
 }
