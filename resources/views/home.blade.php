@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row">
 
         <div class="col-md-8">
             @if(Session::has('error'))
                 <div class="alert alert-danger">{{Session::get('error')}}</div>
             @endif
             <div class="card">
-             <div class="card-header">Gösterge paneli</div>
+             <div class="card-header">Exam</div>
                 @if($isExamAssigned)
                     @foreach($quizzes as $quiz)
 
@@ -37,6 +37,20 @@
                 @endif
             </div>
         </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">User Profile</div>
+                <div class="card-body">
+                    <p>Email:    {{auth()->user()->email}}</p>
+                    <p>Meslek:   {{auth()->user()->occupation}}</p>
+                    <p>Address:  {{auth()->user()->address}}</p>
+                    <p>Telefon:  {{auth()->user()->phone}}</p>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </div>
 @endsection
