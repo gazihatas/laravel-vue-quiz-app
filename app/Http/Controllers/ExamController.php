@@ -6,6 +6,7 @@ use App\Models\Quiz;
 use App\Models\Result;
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ExamController extends Controller
 {
@@ -45,10 +46,28 @@ class ExamController extends Controller
     public function getQuizQuestions(Request $request,$quizId)
     {
         $authUser=auth()->user()->id;
+
+        //kullanıcıya belirli bir sınav atanıp atanmadığını kontrol edin
+        //check if user hasa been assigned a particular quiz
+        $userId =DB::table('quiz_user')->where('user_id',$authUser)->pluck('quiz_id')->toArray();
+        if (!in_array($quizId,$userId))
+        {
+            return  redirect()->to('/home')->with('error','You are not assigneed this exam');
+        }
+
         $quiz = Quiz::find($quizId);
         $time = Quiz::where('id',$quizId)->value('minutes');
         $quizQuestions = Question::where('quiz_id',$quizId)->with('answers')->get();
         $authUserHasPlayedQuiz = Result::where(['user_id'=>$authUser,'quiz_id'=>$quizId])->get();
+
+        //kullanıcı belirli bir sınav oynadı mı
+        //has user played particular quiz
+        $wasCompleted = Result::where('user_id',$authUser)->whereIn('quiz_id',(new Quiz)->hasQuizAttempted())->pluck('quiz_id')->toArray();
+        if(in_array($quizId,$wasCompleted))
+        {
+            return redirect()->to('/home')->with('error','You already participated in this exam | Bu sınava zaten katıldınız');
+        }
+
         return view('quiz',compact('quiz','time','quizQuestions','authUserHasPlayedQuiz'));
     }
 
@@ -64,5 +83,11 @@ class ExamController extends Controller
             ['user_id'=>$authUser->id,'quiz_id'=>$quizId,'question_id'=>$questionId],
             ['answer_id'=>$answerId]
         );
+    }
+
+    public function viewResult($userId,$quizId)
+    {
+        $results = Result::where('user_id',$userId)->where('quiz_id',$quizId)->get();
+        return view('result-detail',compact('results'));
     }
 }
