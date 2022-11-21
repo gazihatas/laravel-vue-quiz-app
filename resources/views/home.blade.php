@@ -22,7 +22,7 @@
                         <p>Soru sayısı : {{$quiz->questions->count()}}</p>
                         <p>
                             @if(!in_array($quiz->id,$wasQuizCompleted))
-                                <a href="/quiz/{{$quiz->id}}">
+                                <a href="user/quiz/{{$quiz->id}}">
                                     <button class="btn btn-success">Sınava Başla</button>
                                 </a>
                             @else

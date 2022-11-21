@@ -4,10 +4,11 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Online Examination
-                            <span class="float-right">{{questionIndex}}/{{questions.length}}</span>
+                            <span class="float-end">{{questionIndex}}/{{questions.length}}</span>
                     </div>
 
                     <div class="card-body">
+                        <span class="float-end" style="color:red;">{{time}}</span>
                        <div v-for="(question,index) in questions">
                           <div v-show="index===questionIndex">
 
@@ -33,7 +34,7 @@
 
                         <div v-show="questionIndex!=questions.length">
 
-                            <button class="btn btn-success float-right" @click="prev()">Prev</button>
+                            <button class="btn btn-success float-end" @click="prev()">Prev</button>
                             <button class="btn btn-success" @click="next();postuserChoice()">Next</button>
                         </div>
 
@@ -53,6 +54,7 @@
 </template>
 
 <script>
+import moment from 'moment';
 export default {
     props:['quizid','quizQuestions','hasQuizPlayed','times'],
     data(){
@@ -61,11 +63,24 @@ export default {
             questionIndex:0,
             userResponses:Array(this.quizQuestions.length).fill(false),
             currentQuestion:0,
-            currentAnswer:0
+            currentAnswer:0,
+            clock:moment(this.times*60*1000)
         }
     },
     mounted() {
-        console.log('Component mounted.')
+        setInterval(()=>{
+            this.clock = moment(this.clock.subtract(1,'seconds'))
+        }, 1000);
+    },
+    computed:{
+        time:function(){
+            var minisec=this.clock.format('mm:ss');
+            if(minisec=='00:00'){
+                alert('Timeout!')
+                window.location.reload();
+            }
+            return minisec;
+        }
     },
     methods:{
         next(){
