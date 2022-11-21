@@ -11,5 +11,12 @@
 
     </quiz-component>
 
+    <script type="text/javascript">
+        window.oncontextmenu= function (){
+            console.log('Right Click Disabled | Sağ tık devre dışı');
+            return false;
+        }
+    </script>
+
 @endsection
 
