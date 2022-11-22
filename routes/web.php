@@ -39,6 +39,8 @@ Route::group(['middleware'=>'isAdmin'],function (){
     Route::resource('question',QuestionController::class);
     Route::resource('user',UserController::class);
 
+    Route::post('/upload',[QuestionController::class, 'uploadimage'])->name('ckeditor.upload');
+
     Route::get('exam/assign',[ExamController::class,'create'])->name('user.exam');
     Route::post('exam/assign',[ExamController::class,'assignExam'])->name('exam.assign');
 
