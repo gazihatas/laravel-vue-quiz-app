@@ -4,23 +4,24 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <center><h2>Your Result</h2></center>
+                <center><h2>Sınav Sonucum</h2></center>
                 @foreach($results as $key=>$result)
+                    <br>
                 <div class="card">
-                    <div class="card-header">{{$key+1}}</div>
+                    <div class="card-header">Soru {{$key+1}}</div>
 
                     <div class="card-body">
                         <p>
                             <h2>
-                                {{$result->question->question}}
+                                {!! $result->question->question !!}
                             </h2>
                         </p>
                         @php
-                        $i=1;
+                        $i="A";
                         $answers = DB::table('answers')->where('question_id',$result->question_id)->get();
                         foreach ($answers as $ans)
                         {
-                            echo'<p>'.$i++.')'.$ans->answer.'</p>';
+                            echo'<p>'.$i++.') '.$ans->answer.'</p>';
                         }
                         @endphp
 

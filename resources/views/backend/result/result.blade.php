@@ -54,7 +54,7 @@
                         @foreach($results as $key=>$result)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$result->question->question}}</td>
+                                <td>{!! $result->question->question !!}</td>
                                 <td>{{$result->answer->answer}}</td>
                                 @if($result->answer->is_correct)
                                     <td>Correct</td>

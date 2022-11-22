@@ -14,7 +14,7 @@
                     <div class="module-body">
 
                         <p>
-                            <h3 class="heading">{{$question->question}}</h3>
+                            <h3 class="heading">{!! $question->question !!}</h3>
                         </p>
 
                         <div class="module-body table">

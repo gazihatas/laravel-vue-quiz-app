@@ -10,7 +10,7 @@
                 <div class="alert alert-success">{{Session::get('message')}}</div>
             @endif
 
-            <form action="{{route('question.update',[$question->id])}}" method="POST">
+            <form action="{{route('question.update',[$question->id])}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 {{method_field('PUT')}}
                 <div class="module">
@@ -46,8 +46,10 @@
                         <div class="control-group">
                             <label class="control-label">Question Name</label>
                             <div class="controls">
+                                {{--
                                 <input type="text" name="question" value="{{$question->question}}" class="span8" placeholder="name of a quiz">
-
+                                --}}
+                                <textarea class="form-control mt-5" name="question" id="editor">{!! $question->question !!}</textarea>
                                 @error('question')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -92,4 +94,22 @@
             </form>
         </div>
     </div>
+@endsection
+@section('js')
+    <script src="{{ asset('ckeditor5/ckeditor.js') }}"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ),
+                {
+                    ckfinder:{
+                        uploadUrl:"{{ route('ckeditor.upload').'?_token='.csrf_token()}}"
+                    }
+                } )
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection

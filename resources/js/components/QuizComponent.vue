@@ -12,9 +12,10 @@
                        <div v-for="(question,index) in questions">
                           <div v-show="index===questionIndex">
 
-                              {{question.question}}
+                             <!-- {{question.question}} -->
+                              <span v-html="question.question"></span>
 
-                              <ol>
+                              <ol type="A">
                                   <li v-for="choice in question.answers">
                                       <label>
                                           <input type="radio"
@@ -34,8 +35,8 @@
 
                         <div v-show="questionIndex!=questions.length">
 
-                            <button class="btn btn-success float-end" @click="prev()">Prev</button>
-                            <button class="btn btn-success" @click="next();postuserChoice()">Next</button>
+                            <button class="btn btn-success " @click="prev()">Önceki</button>
+                            <button class="btn btn-success float-end" @click="next();postuserChoice()">Sonraki</button>
                         </div>
 
                         <div v-show="questionIndex===questions.length">
