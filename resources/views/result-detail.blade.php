@@ -34,7 +34,7 @@
                         $correctAnswers = DB::table('answers')->where('question_id',$result->question_id)->where('is_correct',1)->get();
                         foreach ($correctAnswers as $ans)
                         {
-                            echo "Correct Answer: ".$ans->answer;
+                            echo '<b style="color:green;">Correct Answer: '.$ans->answer."</b>";
                         }
                         @endphp
                         @if($result->answer->is_correct)
