@@ -13,7 +13,7 @@
 
             <div class="module">
                 <div class="module-head">
-                    <h3>Create User</h3>
+                    <h3>Kullanıcı Oluştur</h3>
                 </div>
 
                 <div class="module-body">
@@ -21,7 +21,7 @@
                     @csrf
 
                         <div class="control-group">
-                            <label class="control-label">Full Name</label>
+                            <label class="control-label">İsim Soyisim</label>
                             <div class="controls">
                                 <input type="text" name="name" class="span8 @error('name') border-red @enderror"
                                        placeholder="name" value="{{old('name')}}">
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="control-group">
-                            <label for="password" class="control-label">Password</label>
+                            <label for="password" class="control-label">Şifre</label>
                             <div class="controls">
                                 <input type="text" name="password" class="span8 @error('password') border-red @enderror"
                                        placeholder="name" value="{{old('password')}}">
@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="control-group">
-                            <label for="occupation" class="control-label">Occupation(Meslek)</label>
+                            <label for="occupation" class="control-label">Meslek</label>
                             <div class="controls">
                                 <input type="text" name="occupation" class="span8 @error('occupation') border-red @enderror"
                                        placeholder="name" value="{{old('occupation')}}">
@@ -91,7 +91,7 @@
                         </div>
 
                         <div class="control-group">
-                            <label for="phone" class="control-label">Phone</label>
+                            <label for="phone" class="control-label">Telefon</label>
                             <div class="controls">
                                 <input type="number" name="phone" class="span8 @error('phone') border-red @enderror"
                                        placeholder="phone" value="{{old('phone')}}">
@@ -107,7 +107,7 @@
 
 
                         <div class="control-group">
-                            <button type="submit" class="btn btn-success">Create User</button>
+                            <button type="submit" class="btn btn-success">Kullanıcı Oluştur</button>
                         </div>
 
                     </form>

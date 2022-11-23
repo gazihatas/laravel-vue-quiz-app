@@ -15,12 +15,12 @@
                 {{method_field('PUT')}}
                 <div class="module">
                     <div class="module-head">
-                        <h3>Update Question</h3>
+                        <h3>Soruyu Güncelle</h3>
                     </div>
 
                     <div class="module-body">
                         <div class="control-group">
-                            <div class="control-label" >Choose Quiz</div>
+                            <div class="control-label" >Testi Seçin</div>
                             <div class="controls">
                                 <select name="quiz" class="span8">
                                     @foreach(App\Models\Quiz::all() as $quiz)
@@ -44,7 +44,7 @@
 
                     <div class="module-body">
                         <div class="control-group">
-                            <label class="control-label">Question Name</label>
+                            <label class="control-label">Soru Adı</label>
                             <div class="controls">
                                 {{--
                                 <input type="text" name="question" value="{{$question->question}}" class="span8" placeholder="name of a quiz">
@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="control-group">
-                                <label class="control-label">Options</label>
+                                <label class="control-label">Seçenekler</label>
                                 <div class="controls">
                                     @foreach($question->answers as $key=>$answer)
                                         <input type="text" name="options[]" class="span7" value="{{$answer->answer}}" required>
@@ -67,7 +67,7 @@
                                             @if($answer->is_correct)
                                                 {{'checked'}}
                                             @endif>
-                                        <span>Is correct answer</span>
+                                        <span>Doğru cevap mı?</span>
                                     @endforeach
 
                                     @error('question')
@@ -84,7 +84,7 @@
                         <div class="module-body">
                             <div class="control-group">
                                 <div class="controls">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-success">Kaydet</button>
                                 </div>
                             </div>
                         </div>

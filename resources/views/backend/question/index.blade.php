@@ -13,7 +13,7 @@
 
             <div class="module">
                 <div class="module-head">
-                    <h3>All Questions</h3>
+                    <h3>Tüm Sorular</h3>
                 </div>
 
                 <div class="module-body">
@@ -21,9 +21,9 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Question</th>
-                            <th>Quiz</th>
-                            <th>Created</th>
+                            <th>Soru</th>
+                            <th>Sınav</th>
+                            <th>Oluşturuldu</th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -40,12 +40,12 @@
                                     <td>{{date('F d,Y',strtotime($question->created_at))}}</td>
                                     <td>
                                         <a href="{{route('question.show',[$question->id])}}">
-                                            <button class="btn btn-info">View</button>
+                                            <button class="btn btn-info">Görüntüle</button>
                                         </a>
                                     </td>
                                     <td>
                                         <a href="{{route('question.edit',[$question->id])}}">
-                                            <button class="btn btn-primary">Edit</button>
+                                            <button class="btn btn-primary">Düzenle</button>
                                         </a>
                                     </td>
                                     <td>
@@ -56,7 +56,7 @@
 
                                         <a href="#"
                                            onclick="
-                                               if(confirm('Do you want to delete?')){
+                                               if(confirm('Silmek istiyor musunuz?')){
                                                     event.preventDefault();
                                                     document.getElementById('delete-form{{$question->id}}').submit()
                                                }else    {
@@ -69,7 +69,7 @@
                                 </tr>
                             @endforeach
                         @else
-                            <td>No question to display</td>
+                            <td>Görüntülenecek soru yok</td>
                         @endif
                         </tbody>
                     </table>

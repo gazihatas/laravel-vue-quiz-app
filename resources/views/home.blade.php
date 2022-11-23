@@ -9,7 +9,7 @@
                 <div class="alert alert-danger">{{Session::get('error')}}</div>
             @endif
             <div class="card">
-             <div class="card-header">Exam</div>
+             <div class="card-header">Sınav</div>
                 @if($isExamAssigned)
                     @foreach($quizzes as $quiz)
 
@@ -40,7 +40,7 @@
 
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header">User Profile</div>
+                <div class="card-header">Kullanıcı Bilgileri</div>
                 <div class="card-body">
                     <p>Email:    {{auth()->user()->email}}</p>
                     <p>Meslek:   {{auth()->user()->occupation}}</p>

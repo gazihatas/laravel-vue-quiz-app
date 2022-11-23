@@ -26,7 +26,7 @@
                                                 {{$key+1}}.
                                                 {{$answer->answer}}
                                                 @if($answer->is_correct)
-                                                <span class="badge badge-success pull-right">correct</span>
+                                                <span class="badge badge-success pull-right">doğru</span>
                                                 @endif
                                             </td>
                                         </tr>
@@ -37,7 +37,7 @@
 
                         <div class="module-foot">
                             <a href="{{route('question.edit',[$question->id])}}">
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary">Düzenle</button>
                             </a>
 
 
@@ -48,7 +48,7 @@
 
                                 <a href="#"
                                    onclick="
-                                               if(confirm('Do you want to delete?')){
+                                               if(confirm('Silmek istiyor musunuz?')){
                                                     event.preventDefault();
                                                     document.getElementById('delete-form{{$question->id}}').submit()
                                                }else    {
@@ -59,7 +59,7 @@
                                 </a>
 
                             <a href="{{route('question.index')}}">
-                                <button class="btn btn-inverse pull-right">Back</button>
+                                <button class="btn btn-inverse pull-right">Geri Dön</button>
                             </a>
 
                         </div>

@@ -13,7 +13,7 @@
 
             <div class="module">
                 <div class="module-head">
-                    <h3>User Result</h3>
+                    <h3>Kullanıcı Cevapları</h3>
                 </div>
 
                 <div class="module-body">
@@ -21,8 +21,8 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Quiz</th>
+                            <th>İsim</th>
+                            <th>Sınav</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -37,20 +37,20 @@
                                         <td>{{$quiz->name}}</td>
                                         <td>
                                             <a href="{{route('quiz.question',[$quiz->id])}}">
-                                                <button class="btn btn-inverse">View Question</button>
+                                                <button class="btn btn-inverse">Soruyu Görüntüle</button>
                                             </a>
                                         </td>
 
                                         <td>
                                             <a href="result/{{$user->id}}/{{$quiz->id}}">
-                                                <button class="btn btn-primary">View Result</button>
+                                                <button class="btn btn-primary">Sonucu Görüntüle</button>
                                             </a>
                                         </td>
                                     </tr>
                                 @endforeach
                             @endforeach
                         @else
-                            <td>No user to display</td>
+                            <td>görüntülenecek kullanıcı yok</td>
                         @endif
                         </tbody>
                     </table>

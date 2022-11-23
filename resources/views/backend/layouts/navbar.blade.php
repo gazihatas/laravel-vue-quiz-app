@@ -13,11 +13,14 @@
               rel='stylesheet'>
     </head>
 <body>
+
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                <i class="icon-reorder shaded"></i></a><a class="brand" href="index.html">Edmin </a>
+                <i class="icon-reorder shaded"></i></a><a class="brand" href="{{url('/')}}">
+                <img class="navbar-brand" src="{{asset('edmin/code/images/Sınavhub.png')}}" alt="sinavhub" height="90px" width="90px" style="border-radius: 85px;">
+            </a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
                 <ul class="nav nav-icons">
                     <li class="active"><a href="#"><i class="icon-envelope"></i></a></li>

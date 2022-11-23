@@ -33,7 +33,7 @@
 
                                         @if($answer->is_correct)
                                         <span class="badge badge-success">
-                                            correct answer
+                                            doğru cevap
                                         </span>
                                         @endif
                                     </p>
@@ -50,7 +50,7 @@
                     <div class="module-foot">
                         <td>
                             <a href="{{route('quiz.index')}}">
-                                <button class="btn btn-inverse pull-center">Back</button>
+                                <button class="btn btn-inverse pull-center">Geri Dön</button>
                             </a>
                         </td>
                     </div>

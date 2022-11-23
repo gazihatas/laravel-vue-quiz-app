@@ -8,7 +8,7 @@
         <div class="content">
             <div class="module">
                 <div class="module-head">
-                    <h3>All Quiz</h3>
+                    <h3>Tüm Sınav</h3>
                 </div>
 
                 <div class="module-body">
@@ -17,11 +17,11 @@
                            <tr>
                                <th>#</th>
                                <th>Test</th>
-                               <th>Total Question</th>
-                               <th>Attempt Question</th>
-                               <th>Correct Answer</th>
-                               <th>Wrong Answer</th>
-                               <th>Percentage</th>
+                               <th>Toplam Soru</th>
+                               <th>Deneme Sorusu</th>
+                               <th>Doğru Cevap</th>
+                               <th>Yanlış Cevap</th>
+                               <th>Yüzde</th>
                            </tr>
                         </thead>
 
@@ -44,9 +44,9 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Question</th>
-                            <th>Answer Given</th>
-                            <th>Result</th>
+                            <th>Soru</th>
+                            <th>Cevap Verildi</th>
+                            <th>Sonuç</th>
                         </tr>
                         </thead>
 
@@ -57,9 +57,9 @@
                                 <td>{!! $result->question->question !!}</td>
                                 <td>{{$result->answer->answer}}</td>
                                 @if($result->answer->is_correct)
-                                    <td>Correct</td>
+                                    <td>Doğru</td>
                                 @else
-                                    <td>Wrong</td>
+                                    <td>Yanlış</td>
                                 @endif
                             </tr>
                         @endforeach

@@ -20,9 +20,9 @@
                     </div>
                     <div class="module-body">
                         <div class="control-group">
-                            <label class="control-label">Quiz Name</label>
+                            <label class="control-label">Sınav Adı</label>
                             <div class="controls">
-                                <input type="text" name="name" value="{{$quiz->name}}" class="span8" placeholder="name of a quiz">
+                                <input type="text" name="name" value="{{$quiz->name}}" class="span8" placeholder="bir sınavın adı">
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                                 @enderror
                             </div>
 
-                            <label class="control-label">Quiz Description</label>
+                            <label class="control-label">Sınav Açıklaması</label>
                             <div class="controls">
                                 <textarea name="description" class="span8">{{$quiz->description}}</textarea>
                                 @error('description')
@@ -41,7 +41,7 @@
                                 @enderror
                             </div>
 
-                            <label class="control-label">Minute</label>
+                            <label class="control-label">Dakika</label>
                             <div class="controls">
                                 <input type="text" name="minutes" value="{{$quiz->minutes}}" class="span8" placeholder="name of a quiz">
 
@@ -53,7 +53,7 @@
                             </div>
 
                             <div class="controls">
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success">Kaydet</button>
                             </div>
                         </div>
                     </div>

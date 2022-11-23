@@ -3,7 +3,7 @@
 @section('title','create question')
 
 @section('content')
-    <div class="span9">
+    <div class="span9" >
         <div class="content">
 
             @if(Session::has('message'))
@@ -12,14 +12,18 @@
 
             <form action="{{route('question.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="module">
+                <div class="module" style="background-image: url('{{asset('edmin/code/images/board1.png')}}'); background-repeat: no-repeat;
+  background-attachment: initial;
+  background-size: 100% 100%;
+  background-position: right;
+  ">
                     <div class="module-head">
-                        <h3>Create Question</h3>
+                        <h3>Soru Oluştur</h3>
                     </div>
 
                     <div class="module-body">
                         <div class="control-group">
-                            <div class="control-label" >Choose Quiz</div>
+                            <div class="control-label" >Sınav Seç</div>
                             <div class="controls">
                                 <select name="quiz" class="span8">
                                     @foreach(App\Models\Quiz::all() as $quiz)
@@ -38,7 +42,7 @@
 
                     <div class="module-body">
                         <div class="control-group">
-                            <label class="control-label">Question Name</label>
+                            <label class="control-label">Soru Oluştur</label>
                             <div class="controls">
                                 {{--
                                 <input type="text" name="question" value="{{old('question')}}" class="span8" placeholder="name of a quiz">
@@ -52,14 +56,15 @@
                             </div>
 
                             <div class="control-group">
-                                <label class="control-label">Options</label>
+                                <label class="control-label">Seçenekler</label>
                                 <div class="controls">
                                     @for($i=0;$i<4;$i++)
                                     <input type="text" name="options[]" class="span7 @error('options') border-red @enderror"
-                                           placeholder="options{{$i+1}}" value="{{old('options.[$i]')}}" required>
+
+                                           placeholder="cevap{{$i+1}}" value="{{old('options.[$i]')}}" required>
 
                                     <input type="radio" name="correct_answer" value="{{$i}}">
-                                    <span>Is correct answer</span>
+                                    <span>Doğru</span>
                                     @endfor
 
                                     @error('question')
@@ -76,7 +81,7 @@
                     <div class="module-body">
                         <div class="control-group">
                             <div class="controls">
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success">Oluştur</button>
                             </div>
                         </div>
                     </div>

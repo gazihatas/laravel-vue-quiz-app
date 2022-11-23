@@ -14,12 +14,12 @@
                 @csrf
                 <div class="module">
                     <div class="module-head">
-                        <h3>Assign Quiz</h3>
+                        <h3>Sınav Atama</h3>
                     </div>
 
                     <div class="module-body">
                         <div class="control-group">
-                            <div class="control-label" >Choose Quiz</div>
+                            <div class="control-label" >Sınav Seç</div>
                             <div class="controls">
                                 <select name="quiz_id" class="span8">
                                     @foreach(App\Models\Quiz::all() as $quiz)
@@ -39,7 +39,7 @@
 
                     <div class="module-body">
                         <div class="control-group">
-                            <div class="control-label" >Choose User</div>
+                            <div class="control-label" >Kullanıcı Seç</div>
                             <div class="controls">
                                 <select name="user_id" class="span8">
                                     @foreach(App\Models\User::where('is_admin','0')->get() as $user)
@@ -61,7 +61,7 @@
                         <div class="module-body">
                             <div class="control-group">
                                 <div class="controls">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-success">Kaydet</button>
                                 </div>
                             </div>
                         </div>

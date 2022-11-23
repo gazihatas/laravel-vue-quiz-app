@@ -14,11 +14,11 @@
             @csrf
             <div class="module">
                 <div class="module-head">
-                    <h3>Create Quiz</h3>
+                    <h3>Sınav Oluştur</h3>
                 </div>
                 <div class="module-body">
                     <div class="control-group">
-                        <label class="control-label">Quiz Name</label>
+                        <label class="control-label">Sınav Adı</label>
                         <div class="controls">
                             <input type="text" name="name" value="{{old('name')}}" class="span8" placeholder="name of a quiz">
 
@@ -29,7 +29,7 @@
                             @enderror
                         </div>
 
-                        <label class="control-label">Quiz Description</label>
+                        <label class="control-label">Sınav Açıklaması</label>
                         <div class="controls">
                             <textarea name="description" class="span8">{{old('description')}}</textarea>
                             @error('description')
@@ -39,7 +39,7 @@
                             @enderror
                         </div>
 
-                        <label class="control-label">Minute</label>
+                        <label class="control-label">Dakika</label>
                         <div class="controls">
                             <input type="text" name="minutes" value="{{old('minutes')}}" class="span8" placeholder="name of a quiz">
 
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="controls">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success">Oluştur</button>
                         </div>
                     </div>
                 </div>

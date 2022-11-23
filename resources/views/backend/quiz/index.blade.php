@@ -21,9 +21,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Minutes</th>
+                                <th>Ad</th>
+                                <th>Açıklama</th>
+                                <th>Dakika</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -40,12 +40,12 @@
                                         <td>{{$quiz->minutes}}</td>
                                         <td>
                                             <a href="{{route('quiz.question',[$quiz->id])}}">
-                                                <button class="btn btn-inverse">View Question</button>
+                                                <button class="btn btn-inverse">Soruyu Görüntüle</button>
                                             </a>
                                         </td>
                                         <td>
                                             <a href="{{route('quiz.edit',[$quiz->id])}}">
-                                                <button class="btn btn-primary">Edit</button>
+                                                <button class="btn btn-primary">Düzenle</button>
                                             </a>
                                         </td>
                                         <td>
@@ -56,7 +56,7 @@
 
                                             <a href="#"
                                                onclick="
-                                               if(confirm('Do you want to delete?')){
+                                               if(confirm('Silmek istiyor musun?')){
                                                     event.preventDefault();
                                                     document.getElementById('delete-form{{$quiz->id}}').submit()
                                                }else{
@@ -69,7 +69,7 @@
                                     </tr>
                                 @endforeach
                             @else
-                                <td>No quiz to display</td>
+                                <td>Gösterilecek sınav yok</td>
                             @endif
                         </tbody>
                     </table>
