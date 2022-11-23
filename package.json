@@ -17,6 +17,7 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
-        "moment": "^2.29.4"
+        "moment": "^2.29.4",
+        "vue-confetti": "^2.3.0"
     }
 }

@@ -55,6 +55,7 @@
 </template>
 
 <script>
+
 import moment from 'moment';
 export default {
     props:['quizid','quizQuestions','hasQuizPlayed','times'],
