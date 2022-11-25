@@ -45,5 +45,10 @@ class HomeController extends Controller
         return view('home',compact('quizzes','wasQuizCompleted','isExamAssigned'));
     }
 
+    public function demo()
+    {
+        return view('backend2.layouts.master');
+    }
+
 
 }

@@ -15,7 +15,7 @@ class QuizController extends Controller
     public function index()
     {
         $quizzes = (new Quiz)->allQuiz();
-        return view('backend.quiz.index',compact('quizzes'));
+        return view('backend2.quiz.index',compact('quizzes'));
     }
 
     /**
@@ -25,7 +25,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        return view('backend.quiz.create');
+        return view('backend2.quiz.create');
     }
 
     /**
@@ -63,7 +63,7 @@ class QuizController extends Controller
     public function edit($id)
     {
         $quiz = (new Quiz)->getQuizById($id);
-        return view('backend.quiz.edit',compact('quiz'));
+        return view('backend2.quiz.edit',compact('quiz'));
     }
 
     /**

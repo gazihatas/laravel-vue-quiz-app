@@ -5,6 +5,7 @@ use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,8 @@ Auth::routes([
     'reset'=>false,
     'verify'=>false
 ]);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/demo',[HomeController::class,'demo'])->name('demo');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('user/quiz/{quizId}',[ExamController::class,'getQuizQuestions'])->middleware('auth');
 Route::post('quiz/create',[ExamController::class,'postQuiz'])->middleware('auth');
 Route::get('/result/user/{userId}/quiz/{quizId}',[ExamController::class,'viewResult'])->middleware('auth');
@@ -42,7 +43,7 @@ Route::group(['middleware'=>'isAdmin'],function (){
     Route::post('/upload',[QuestionController::class, 'uploadimage'])->name('ckeditor.upload');
 
     Route::get('exam/assign',[ExamController::class,'create'])->name('user.exam');
-    Route::post('exam/assign',[ExamController::class,'assignExam'])->name('exam.assign');
+    Route::post('exam</assign',[ExamController::class,'assignExam'])->name('exam.assign');
 
     Route::get('exam/user',[ExamController::class,'userExam'])->name('view.exam');
     Route::post('exam/remove',[ExamController::class,'removeExam'])->name('exam.remove');
