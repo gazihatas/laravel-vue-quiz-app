@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $users= (new User)->allUsers();
-        return view('backend.user.index',compact('users'));
+        return view('backend2.user.index',compact('users'));
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('backend.user.create');
+        return view('backend2.user.create');
     }
 
     /**
