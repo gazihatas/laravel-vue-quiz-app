@@ -66,7 +66,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = (new User)->findUser($id);
-        return view('backend.user.edit',compact('user'));
+        return view('backend2.user.edit',compact('user'));
     }
 
     /**

@@ -1,122 +1,115 @@
-@extends('backend.layouts.master')
+@extends('backend2.layouts.master')
 
 @section('title','Update user')
 
 @section('content')
 
-    <div class="span9">
-        <div class="content">
 
-            @if(Session::has('message'))
-                <div class="alert alert-success">{{Session::get('message')}}</div>
-            @endif
-
-            <div class="module">
-                <div class="module-head">
-                    <h3>Update User</h3>
-                </div>
-
-                <div class="module-body">
-                    <form action="{{route('user.update',[$user->id])}}" method="POST">
-                        @csrf
-                        {{method_field('PUT')}}
-                        <div class="control-group">
-                            <label class="control-label">Full Name</label>
-                            <div class="controls">
-                                <input type="text" name="name" class="span8 @error('name') border-red @enderror"
-                                       placeholder="name" value="{{$user->name}}">
-                            </div>
-
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-
-                        {{--
-                        <div class="control-group">
-                            <label for="email" class="control-label">Email</label>
-                            <div class="controls">
-                                <input type="text" name="email" class="span8 @error('email') border-red @enderror"
-                                       placeholder="name" value="{{old('email')}}">
-                            </div>
-
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                        --}}
-
-                        <div class="control-group">
-                            <label for="password" class="control-label">Password</label>
-                            <div class="controls">
-                                <input type="text" name="password" class="span8 @error('password') border-red @enderror"
-                                       placeholder="name" value="{{$user->visible_password}}">
-                            </div>
-
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-
-                        <div class="control-group">
-                            <label for="occupation" class="control-label">Occupation(Meslek)</label>
-                            <div class="controls">
-                                <input type="text" name="occupation" class="span8 @error('occupation') border-red @enderror"
-                                       placeholder="name" value="{{$user->occupation}}">
-                            </div>
-
-                            @error('occupation')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-
-                        <div class="control-group">
-                            <label for="address" class="control-label">Adres</label>
-                            <div class="controls">
-                                <input type="text" name="address" class="span8 @error('address') border-red @enderror"
-                                       placeholder="name" value="{{$user->address}}">
-                            </div>
-
-                            @error('address')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-
-                        <div class="control-group">
-                            <label for="phone" class="control-label">Phone</label>
-                            <div class="controls">
-                                <input type="text" name="phone" class="span8 @error('phone') border-red @enderror"
-                                       placeholder="phone" value="{{$user->phone}}">
-                            </div>
-
-                            @error('phone')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-
-
-
-                        <div class="control-group">
-                            <button type="submit" class="btn btn-success">Update User</button>
-                        </div>
-
-                    </form>
-                </div>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header pb-0">
+                <h5>Kullanıcı Güncelle</h5>
             </div>
+            <div class="card-body">
 
+                @if(Session::has('message'))
+                    <div class="alert alert-success">{{Session::get('message')}}</div>
+                @endif
+
+                <form class="theme-form mega-form" action="{{route('user.update',[$user->id])}}" method="POST">
+                    @csrf
+                    {{method_field('PUT')}}
+                    <!-- İsim Soyisim -->
+                    <div class="mb-3">
+                        <label class="col-form-label">İsim Soyisim</label>
+                        <input type="text" name="name" value="{{$user->name}}" class="form-control @error('name') border-red @enderror">
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+
+                    <!-- E-posta-->
+                    <div class="mb-3">
+                        <label class="col-form-label">E-posta</label>
+                        <input type="email" name="email" value="{{$user->email}}" class="form-control @error('email') border-red @enderror"
+                               placeholder="Eposta">
+
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+
+                    <!-- Şifre-->
+                    <div class="mb-3">
+                        <label class="col-form-label">Şifre</label>
+                        <input type="text" name="password" value="{{$user->visible_password}}" class="form-control @error('password') border-red @enderror"
+                               placeholder="şifre giriniz.">
+
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <!-- Meslek-->
+                    <div class="mb-3">
+                        <label class="col-form-label">Meslek</label>
+                        <input type="text" name="occupation" value="{{$user->occupation}}" class="form-control @error('occupation') border-red @enderror"
+                               placeholder="Meslek giriniz.">
+
+                        @error('occupation')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <!-- Adres -->
+                    <div class="mb-3">
+                        <label class="col-form-label">Adres</label>
+                        <input type="text" name="address" value="{{$user->address}}" class="form-control @error('address') border-red @enderror"
+                               placeholder="adresi giriniz.">
+
+                        @error('address')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <!-- Telefon -->
+                    <div class="mb-3">
+                        <label class="col-form-label">Telefon</label>
+                        <input type="number" name="phone" value="{{$user->phone}}" class="form-control @error('phone') border-red @enderror"
+                               placeholder="Telefon numaranızı giriniz.">
+
+                        @error('address')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+
+
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary">Güncelle</button>
+            </div>
+            </form>
         </div>
     </div>
+
+
+
+
+
+
 
 @endsection
