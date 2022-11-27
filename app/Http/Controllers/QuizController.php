@@ -95,7 +95,7 @@ class QuizController extends Controller
     public function question($id)
     {
         $quizzes =Quiz::with('questions')->where('id',$id)->get();
-        return view('backend.quiz.question',compact('quizzes'));
+        return view('backend2.quiz.question',compact('quizzes'));
     }
 
     public function validateForm($request)

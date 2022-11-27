@@ -3,6 +3,11 @@
 @section('title','show quiz')
 
 @section('content')
+
+
+
+
+
     <div class="span9">
         <div class="content">
                 <div class="module">

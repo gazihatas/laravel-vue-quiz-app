@@ -1,6 +1,6 @@
 @extends('backend2.layouts.master')
 
-@section('title','list user')
+@section('title','Kullanıcı Görüntüle')
 
 @section('content')
 
@@ -11,7 +11,7 @@
                 <div class="alert alert-success">{{Session::get('message')}}</div>
             @endif
             <div class="card-header">
-                <h5>Tüm Kullanıcılar</h5></span>
+               <span> <h5>Tüm Kullanıcılar</h5></span>
             </div>
             <div class="table-responsive">
                 <table class="table table-border-horizontal">

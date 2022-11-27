@@ -13,7 +13,7 @@ class ExamController extends Controller
 {
     public function create()
     {
-        return view('backend.exam.create');
+        return view('backend2.exam.create');
     }
 
     public function assignExam(Request $request)
@@ -25,7 +25,7 @@ class ExamController extends Controller
     public function userExam(Request $request)
     {
         $quizzes = Quiz::get();
-        return view('backend.exam.index',compact('quizzes'));
+        return view('backend2.exam.index',compact('quizzes'));
     }
 
     public function removeExam(Request $request)
@@ -95,7 +95,7 @@ class ExamController extends Controller
     public function result()
     {
         $quizzes = Quiz::get();
-        return view('backend.result.index',compact('quizzes'));
+        return view('backend2.result.index',compact('quizzes'));
     }
 
     public function userQuizResult($userId,$quizId)
@@ -118,7 +118,7 @@ class ExamController extends Controller
             $percentage=0;
         }
 
-        return view('backend.result.result',compact('results','totalQuestions',
+        return view('backend2.result.result',compact('results','totalQuestions',
             'attemptQuestion','userCorrectedAnswer','userWrongAnswer','percentage','quiz'));
     }
 }

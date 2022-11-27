@@ -1,5 +1,5 @@
-@include('backend.layouts.navbar')
-@include('backend.layouts.sidebar')
-@include('backend.layouts.dashboard')
+@include('backend2.layouts.header')
+@include('backend2.layouts.sidebar')
+@include('backend2.layouts.dashboard')
 
-@include('backend.layouts.footer')
+@include('backend2.layouts.footer')

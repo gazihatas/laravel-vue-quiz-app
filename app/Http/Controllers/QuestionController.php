@@ -18,7 +18,7 @@ class QuestionController extends Controller
     public function index()
     {
         $questions= (new Question)->getQuestions();
-        return view('backend.question.index',compact('questions'));
+        return view('backend2.question.index',compact('questions'));
     }
 
     public function uploadimage(Request $request)
@@ -44,7 +44,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        return view('backend.question.create');
+        return view('backend2.question.create');
     }
 
     /**
@@ -70,7 +70,7 @@ class QuestionController extends Controller
     public function show($id)
     {
         $question = (new Question)->getQuestionById($id);
-        return view('backend.question.show',compact('question'));
+        return view('backend2.question.show',compact('question'));
     }
 
     /**
@@ -82,7 +82,7 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = (new Question)->findQuestion($id);
-        return view('backend.question.edit',compact('question'));
+        return view('backend2.question.edit',compact('question'));
     }
 
     /**
