@@ -9,8 +9,9 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 
 ## Project Images
-    ### Quiz Main Page
-    ![image](/public/md/quizmainpage.png)
+
+![image](/public/md/quizmainpage.png)
+
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
