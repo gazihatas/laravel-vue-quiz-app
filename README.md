@@ -10,7 +10,17 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Project Images
 
+### Quiz Main Page
 ![image](/public/md/quizmainpage.png)
+
+### Quiz Page
+![image](/public/md/quizpage.png)
+
+### Quiz Finish Page
+![image](/public/md/quizfinishpage.png)
+
+### Result Page
+![image](/public/md/resultpage.png)
 
 ## Contributing
 
